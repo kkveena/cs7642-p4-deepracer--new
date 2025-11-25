@@ -1,0 +1,10 @@
+{
+  "sensor": ["FRONT_FACING_CAMERA"],
+  "sensor_list": ["FRONT_FACING_CAMERA"],
+  "action_space_type": "continuous",
+  "action_space": {
+    "steering_angle": {"high": 30.0, "low": -30.0},
+    "speed": {"high": 1.0, "low": 0.5}
+  },
+  "network": "deep_convolutional_network_shallow"
+}

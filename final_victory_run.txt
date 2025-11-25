@@ -1,0 +1,7 @@
+nohup: ignoring input
+[info] running: python -m src.cli train --env-config configs/environment_params.yaml --agent-config configs/agent_params.json --reward baseline --hparams-config configs/hyper_params.yaml --steps 1000 --seed 999
+2025-11-25 16:26:59.354 | INFO     | src.utils:device:79 - Using cuda device.
+2025-11-25 16:26:59.423 | INFO     | src.utils:set_seed:65 - Random seed set as 999.
+2025-11-25 16:26:59.423 | INFO     | deepracer_gym.envs.deepracer_gym:__init__:49 - Using to port 9194 for deepracer server.
+2025-11-25 16:27:15.950 | INFO     | src.run:run:79 - step=93, episodic_return=64.02999999999996, episodic_length=94, time_elapsed=0:00:17
+2025-11-25 16:27:16.002 | INFO     | src.run:run:99 - Model random saved.
