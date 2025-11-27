@@ -1,0 +1,21 @@
+nohup: ignoring input
+[info] starting apptainer instance 'deepracer'...
+Capping deepracer at 8 CPUs and 20g memory.
+Building deepracer Apptainer container.
+FATAL:   Image file already exists: "deepracer_base.sif" - will not overwrite
+INFO:    User not listed in /etc/subuid, trying root-mapped namespace
+INFO:    fakeroot command not found
+INFO:    Installing some packages may fail
+FATAL:   While checking build target: build target 'deepracer.sif' already exists. Use --force if you want to overwrite it
+Using port 9194 for deepracer.
+Using port http://localhost:12528 for Gazebo Master.
+Using port http://localhost:7854 for ROS Master.
+INFO:    Instance stats will not be available - DBUS_SESSION_BUS_ADDRESS is not set
+INFO:    instance started successfully
+Started deepracer Apptainer container.
+[info] running: python -m src.cli train --env-config configs/environment_params.yaml --agent-config configs/agent_params.json --reward baseline --hparams-config configs/hyper_params.yaml --steps 1000 --seed 999
+2025-11-27 07:16:16.205 | INFO     | src.utils:device:79 - Using cuda device.
+2025-11-27 07:16:16.278 | INFO     | src.utils:set_seed:65 - Random seed set as 999.
+2025-11-27 07:16:16.278 | INFO     | deepracer_gym.envs.deepracer_gym:__init__:49 - Using to port 9194 for deepracer server.
+2025-11-27 07:16:33.112 | INFO     | src.run:run:79 - step=93, episodic_return=63.03099999999993, episodic_length=94, time_elapsed=0:00:17
+2025-11-27 07:16:33.172 | INFO     | src.run:run:99 - Model random saved.
