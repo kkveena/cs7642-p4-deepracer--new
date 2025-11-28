@@ -1,10 +1,10 @@
----
-# default hyper-parameters for your experiments.
-# these are just dummy variables as an example.
-seed:               42
-cpu_only:           false
-environment:        deepracer-v0
-experiment_name:    time_trial
-learning_rate:      2e-2
-total_timesteps:    1024
-gamma:              0.99
+environment: "deepracer-v0"
+experiment_name: "time_trial"
+total_timesteps: 20000
+lr: 0.0003             # Learning Rate
+gamma: 0.99            # Discount factor
+batch_size: 64         # PPO batch size
+epoch_k: 10            # PPO epochs per update
+clip_eps: 0.2          # PPO clipping range
+ent_coef: 0.01         # Entropy coefficient
+seed: 42               # Default seed

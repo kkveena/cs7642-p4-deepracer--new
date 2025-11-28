@@ -9,7 +9,7 @@
     },
     "speed": {
       "high": 4.0,
-      "low": 0.5
+      "low": 1.0
     }
   },
   "network": "deep_convolutional_network_shallow"
