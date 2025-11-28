@@ -1,0 +1,50 @@
+[info] running: python -m src.cli train --env-config configs/environment_params.yaml --agent-config configs/agent_params.json --reward baseline --hparams-config configs/hyper_params.yaml --steps 300000
+2025-11-27 09:54:40.682 | INFO     | src.utils:device:79 - Using cuda device.
+2025-11-27 09:54:40.691 | INFO     | src.utils:set_seed:65 - Random seed set as 42.
+2025-11-27 09:54:40.691 | INFO     | deepracer_gym.envs.deepracer_gym:__init__:49 - Using to port 9194 for deepracer server.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/storage/ice1/9/3/kkumar80/cs7642-p4-deepracer/src/cli.py", line 142, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/storage/ice1/9/3/kkumar80/cs7642-p4-deepracer/src/cli.py", line 130, in main
+    run(overrides)
+  File "/storage/ice1/9/3/kkumar80/cs7642-p4-deepracer/src/run.py", line 61, in run
+    observation, info = env.reset()
+                        ^^^^^^^^^^^
+  File "/home/hice1/kkumar80/scratch/conda/deepracer/lib/python3.12/site-packages/gymnasium/wrappers/common.py", line 543, in reset
+    obs, info = super().reset(seed=seed, options=options)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hice1/kkumar80/scratch/conda/deepracer/lib/python3.12/site-packages/gymnasium/core.py", line 333, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hice1/kkumar80/scratch/conda/deepracer/lib/python3.12/site-packages/gymnasium/core.py", line 553, in reset
+    obs, info = self.env.reset(seed=seed, options=options)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hice1/kkumar80/scratch/conda/deepracer/lib/python3.12/site-packages/gymnasium/wrappers/common.py", line 400, in reset
+    return super().reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hice1/kkumar80/scratch/conda/deepracer/lib/python3.12/site-packages/gymnasium/core.py", line 333, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hice1/kkumar80/scratch/conda/deepracer/lib/python3.12/site-packages/gymnasium/wrappers/common.py", line 293, in reset
+    return env_reset_passive_checker(self.env, seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hice1/kkumar80/scratch/conda/deepracer/lib/python3.12/site-packages/gymnasium/utils/passive_env_checker.py", line 185, in env_reset_passive_checker
+    result = env.reset(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/storage/ice1/9/3/kkumar80/cs7642-p4-deepracer/packages/deepracer_gym/envs/deepracer_gym.py", line 67, in reset
+    observation, info = self.deepracer_gym_adapter.env_reset()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/ice1/9/3/kkumar80/cs7642-p4-deepracer/packages/deepracer_gym/gym_adapter.py", line 52, in env_reset
+    self.response = self.zmq_client.recieve_response()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/ice1/9/3/kkumar80/cs7642-p4-deepracer/packages/deepracer_gym/zmq_client.py", line 31, in recieve_response
+    packed_response = self.socket.recv()
+                      ^^^^^^^^^^^^^^^^^^
+  File "_zmq.py", line 1156, in zmq.backend.cython._zmq.Socket.recv
+  File "_zmq.py", line 1191, in zmq.backend.cython._zmq.Socket.recv
+  File "_zmq.py", line 1278, in zmq.backend.cython._zmq._recv_copy
+  File "_zmq.py", line 160, in zmq.backend.cython._zmq._check_rc
+KeyboardInterrupt

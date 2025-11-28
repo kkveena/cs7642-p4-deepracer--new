@@ -71,8 +71,8 @@ done
 # assign default if empty
 if [ -z "$cpus" ] || [ -z "$memory" ]
 then
-    cpus="${cpus:=8}"
-    memory="${memory:=20g}"
+    cpus="${cpus:=12}"
+    memory="${memory:=50g}"
     echo "Capping deepracer at ${cpus} CPUs and ${memory} memory.";
 fi
 

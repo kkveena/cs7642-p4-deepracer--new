@@ -1,10 +1,28 @@
 {
-  "sensor": ["FRONT_FACING_CAMERA"],
-  "sensor_list": ["FRONT_FACING_CAMERA"],
-  "action_space_type": "continuous",
-  "action_space": {
-    "steering_angle": {"high": 30.0, "low": -30.0},
-    "speed": {"high": 1.0, "low": 0.5}
-  },
-  "network": "deep_convolutional_network_shallow"
+    "action_space": [
+        {
+            "steering_angle": 30,
+            "speed": 0.6
+        },
+        {
+            "steering_angle": 15,
+            "speed": 0.6
+        },
+        {
+            "steering_angle": 0,
+            "speed": 0.6
+        },
+        {
+            "steering_angle": -15,
+            "speed": 0.6
+        },
+        {
+            "steering_angle": -30,
+            "speed": 0.6
+        }
+    ],
+    "sensor": ["STEREO_CAMERAS", "LIDAR"],
+    "neural_network": "DEEP_CONVOLUTIONAL_NETWORK_SHALLOW",
+    "action_space_type": "discrete",
+    "version": "4"
 }
