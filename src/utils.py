@@ -156,14 +156,17 @@ def demo(
 
     # create environment with proper render_mode
     demo_environment = make_environment(
-        environment_name, render_mode=None
+        environment_name, render_mode='rgb_array'
+        #environment_name, render_mode=None
     )
 
     # apply video recording wrapper
+    # Uncommented to include agent name in video filename
+    # comment this out for training
     """
-    # demo_environment = RecordVideo(
+    demo_environment = RecordVideo(
         demo_environment,
-        # video_folder=directory,
+        video_folder=directory,
         episode_trigger=lambda x: True,
         name_prefix=f'{world_name}-{race_type}-{agent.name}'
     )
