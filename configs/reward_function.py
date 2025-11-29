@@ -1,27 +1,38 @@
 def reward_function(params):
-    track_width = params['track_width']
-    distance_from_center = params['distance_from_center']
+    '''
+    Object Avoidance Reward
+    '''
     all_wheels_on_track = params['all_wheels_on_track']
+    distance_from_center = params['distance_from_center']
+    track_width = params['track_width']
+    objects_distance = params['objects_distance']
+    closest_objects = params['closest_objects']
+    is_crashed = params['is_crashed']
     speed = params['speed']
-    steering = abs(params['steering_angle'])
-    
-    if not all_wheels_on_track:
+
+    # 1. Fail Conditions
+    if is_crashed or not all_wheels_on_track:
         return 1e-3
 
-    marker_1 = 0.1 * track_width
-    marker_2 = 0.25 * track_width
-    
-    if distance_from_center <= marker_1:
-        reward = 1.0
-    elif distance_from_center <= marker_2:
+    # 2. Base Reward (Stay on track)
+    reward = 1.0
+    if distance_from_center > 0.4 * track_width:
         reward = 0.5
-    else:
-        reward = 1e-3 
 
-    if steering > 20.0:
-        reward *= 0.8
+    # 3. Obstacle Avoidance Logic
+    # Check distance to closest object
+    closest_obj_index = closest_objects[0]
+    dist_to_obj = objects_distance[closest_obj_index]
 
-    if reward > 0.5:
+    # If close (< 1.5m), reduce reward
+    if dist_to_obj < 1.5:
+        reward *= 0.5
+        # If DANGEROUSLY close (< 0.8m), almost 0 reward
+        if dist_to_obj < 0.8:
+            reward = 1e-3
+
+    # 4. Speed (Only if safe)
+    if dist_to_obj >= 1.5:
         reward += (speed * 0.5)
-        
+
     return float(reward)
