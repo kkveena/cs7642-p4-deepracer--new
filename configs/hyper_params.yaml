@@ -1,5 +1,5 @@
 environment: "deepracer-v0"
-experiment_name: "smile_track"
+experiment_name: "vegas_track"
 total_timesteps: 15000
 lr: 0.0003
 gamma: 0.99

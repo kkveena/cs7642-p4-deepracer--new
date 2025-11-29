@@ -8,12 +8,13 @@ import pandas as pd
 import seaborn as sns
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
+
 # --- CONFIGURATION ---
 RUNS_DIR = "runs"
-EVAL_DIR = "final_report_smile"
-OUTPUT_DIR = "final_plots_smile"
-TRACK_NAME = "reInvent2019_track"
-TEXT_LOG_FILE = "training_smile.log"  # <--- UPDATED FILENAME
+EVAL_DIR = "final_report_vegas"
+OUTPUT_DIR = "final_plots_vegas"
+TRACK_NAME = "Vegas_track"
+TEXT_LOG_FILE = "training_vegas.log"  # <--- UPDATED FILENAME
 
 # Suppress warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)

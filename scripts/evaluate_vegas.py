@@ -1,0 +1,43 @@
+import os
+import sys
+import torch
+import json
+sys.path.append(os.getcwd())
+from src.ppo import PPOAgent
+from src.utils import make_environment, demo, evaluate_track
+
+TRACK = "Vegas_track"
+OUTPUT_DIR = "final_report_vegas"
+MODEL_PATH = "saved_models_part1/model_vegas_track.pt"
+
+def main():
+    print(f"🚀 STARTING EVALUATION FOR: {TRACK}")
+    if not os.path.exists(MODEL_PATH):
+        print(f"❌ Error: Model not found at {MODEL_PATH}")
+        exit(1)
+
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    
+    # Load Agent
+    env = make_environment("deepracer-v0")
+    agent = PPOAgent(env).to(torch.device("cpu"))
+    state_dict = torch.load(MODEL_PATH, map_location=torch.device("cpu"))
+    agent.actor.load_state_dict(state_dict)
+    agent.eval()
+    env.close()
+    
+    # Metrics
+    print(f"   ...Collecting Metrics...")
+    metrics = evaluate_track(agent, TRACK, "deepracer-v0", 5, OUTPUT_DIR)
+    print(f"   📊 Results: {metrics}")
+    
+    # Video
+    print(f"   ...Rendering Video...")
+    try:
+        demo(agent, TRACK, f"{OUTPUT_DIR}/{TRACK}.mp4")
+        print(f"✅ Video Saved")
+    except Exception as e:
+        print(f"⚠️ Video Error: {e}")
+
+if __name__ == "__main__":
+    main()

@@ -18,11 +18,9 @@ def reward_function(params):
     else:
         reward = 1e-3 
 
-    # Penalize sharp steering
     if steering > 20.0:
         reward *= 0.8
 
-    # Speed bonus
     if reward > 0.5:
         reward += (speed * 0.5)
         
