@@ -1,7 +1,11 @@
 def reward_function(params):
     '''
-    Object Avoidance Reward
+    Head-to-Bot Reward
+    - Penalize collisions
+    - Maintain speed if clear
+    - Avoid objects (bots)
     '''
+    
     all_wheels_on_track = params['all_wheels_on_track']
     distance_from_center = params['distance_from_center']
     track_width = params['track_width']
@@ -19,20 +23,19 @@ def reward_function(params):
     if distance_from_center > 0.4 * track_width:
         reward = 0.5
 
-    # 3. Obstacle Avoidance Logic
-    # Check distance to closest object
+    # 3. Bot Avoidance Logic
+    # In H2B, bots appear in the object list
     closest_obj_index = closest_objects[0]
     dist_to_obj = objects_distance[closest_obj_index]
 
-    # If close (< 1.5m), reduce reward
-    if dist_to_obj < 1.5:
+    # Bots move, so we need a larger safety margin than static boxes
+    if dist_to_obj < 2.0:
         reward *= 0.5
-        # If DANGEROUSLY close (< 0.8m), almost 0 reward
-        if dist_to_obj < 0.8:
-            reward = 1e-3
+        if dist_to_obj < 1.0:
+            reward = 1e-3  # Danger zone
 
-    # 4. Speed (Only if safe)
-    if dist_to_obj >= 1.5:
-        reward += (speed * 0.5)
+    # 4. Speed Incentive
+    if dist_to_obj >= 2.0:
+        reward += (speed * 1.0)
 
     return float(reward)

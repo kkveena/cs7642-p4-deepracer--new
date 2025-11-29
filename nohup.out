@@ -48,3 +48,17 @@ Traceback (most recent call last):
   File "_zmq.py", line 1278, in zmq.backend.cython._zmq._recv_copy
   File "_zmq.py", line 160, in zmq.backend.cython._zmq._check_rc
 KeyboardInterrupt
+Capping deepracer at 12 CPUs and 50g memory.
+Building deepracer Apptainer container.
+FATAL:   Image file already exists: "deepracer_base.sif" - will not overwrite
+INFO:    User not listed in /etc/subuid, trying root-mapped namespace
+INFO:    fakeroot command not found
+INFO:    Installing some packages may fail
+FATAL:   While checking build target: build target 'deepracer.sif' already exists. Use --force if you want to overwrite it
+Using port 9194 for deepracer.
+Using port http://localhost:12528 for Gazebo Master.
+Using port http://localhost:7854 for ROS Master.
+INFO:    Instance stats will not be available - DBUS_SESSION_BUS_ADDRESS is not set
+INFO:    Environment variable SINGULARITYENV_PYTHONPATH is set, but APPTAINERENV_PYTHONPATH is preferred
+INFO:    instance started successfully
+Started deepracer Apptainer container.

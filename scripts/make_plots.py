@@ -11,10 +11,10 @@ from tensorboard.backend.event_processing.event_accumulator import EventAccumula
 
 # --- CONFIGURATION ---
 RUNS_DIR = "runs"
-EVAL_DIR = "final_report_oa"
-OUTPUT_DIR = "final_plots_oa"
+EVAL_DIR = "final_report_h2b"
+OUTPUT_DIR = "final_plots_h2b"
 TRACK_NAME = "reInvent2019_track"
-TEXT_LOG_FILE = "training_oa.log"  # <--- UPDATED FILENAME
+TEXT_LOG_FILE = "training_h2b.log"  # <--- UPDATED FILENAME
 
 
 # Suppress warnings
