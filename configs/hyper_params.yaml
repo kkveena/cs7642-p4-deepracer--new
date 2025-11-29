@@ -1,10 +1,10 @@
 environment: "deepracer-v0"
-experiment_name: "time_trial"
-total_timesteps: 20000
-lr: 0.0003             # Learning Rate
-gamma: 0.99            # Discount factor
-batch_size: 64         # PPO batch size
-epoch_k: 10            # PPO epochs per update
-clip_eps: 0.2          # PPO clipping range
-ent_coef: 0.01         # Entropy coefficient
-seed: 42               # Default seed
+experiment_name: "smile_track"
+total_timesteps: 15000
+lr: 0.0003
+gamma: 0.99
+batch_size: 64
+epoch_k: 10
+clip_eps: 0.2
+ent_coef: 0.01
+seed: 42

@@ -10,10 +10,10 @@ from tensorboard.backend.event_processing.event_accumulator import EventAccumula
 
 # --- CONFIGURATION ---
 RUNS_DIR = "runs"
-EVAL_DIR = "final_report_part1"
-OUTPUT_DIR = "final_report_plots"
-TRACK_NAME = "reInvent2019_wide"
-TEXT_LOG_FILE = "training_phase1.log"  # <--- UPDATED FILENAME
+EVAL_DIR = "final_report_smile"
+OUTPUT_DIR = "final_plots_smile"
+TRACK_NAME = "reInvent2019_track"
+TEXT_LOG_FILE = "training_smile.log"  # <--- UPDATED FILENAME
 
 # Suppress warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
